@@ -200,8 +200,21 @@
 	<script type="text/javascript" src="./toWord.js"></script>
 
 	<script>
-		function loadFile(url, callback) {
-			PizZipUtils.getBinaryContent(url, callback);
+		async function loadFile(url, callback) {
+			let file = await fetch(url, {
+				method: 'GET',
+				headers: {
+					'Access-Control-Allow-Origin': '*',
+				},
+			}).then((response) =>
+				console.log(
+					'🚀 ~ file: index.html ~ line 210 ~ loadFile ~ response',
+					response,
+				),
+			);
+			// let document = await file.text();
+
+			// PizZipUtils.getBinaryContent(url, callback);
 		}
 		function generate() {
 			loadFile(
