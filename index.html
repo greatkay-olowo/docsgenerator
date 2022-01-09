@@ -192,23 +192,6 @@
 		}
 		function generate() {
 			gen.innerText = 'loading';
-			return;
-			if (equity === '' || equity === undefined) {
-				alert('equity cannot be empty');
-				return;
-			}
-			if (repayment === '' || repayment === undefined) {
-				alert('Monthly Installment cannot be empty');
-				return;
-			}
-			if (renewal === '' || renewal === undefined) {
-				alert('Monthly Renewal cannot be empty');
-				return;
-			}
-			if (renewalPeriod === '' || renewalPeriod === undefined) {
-				alert('Number of months for nenewal cannot be empty');
-				return;
-			}
 
 			loadFile('template.docx', function (error, content) {
 				if (error) {
