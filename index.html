@@ -30,7 +30,7 @@
 				<div class="mb-3 row">
 					<label for="date" class="col-sm-3 col-form-label">Date</label>
 					<div class="col-sm-9">
-						<input type="date" class="form-control" id="date" />
+						<input type="date" class="form-control" id="date" required />
 					</div>
 				</div>
 				<div class="mb-3 row">
@@ -191,7 +191,84 @@
 			PizZipUtils.getBinaryContent(url, callback);
 		}
 		function generate() {
+			if (date === '' || date === undefined) {
+				alert('date cannot be empty');
+				return;
+			}
+			if (name === '' || name === undefined) {
+				alert('name cannot be empty');
+				return;
+			}
+			if (no === '' || no === undefined) {
+				alert('House Number cannot be empty');
+				return;
+			}
+			if (street === '' || street === undefined) {
+				alert('street name cannot be empty');
+				return;
+			}
+			if (lga === '' || lga === undefined) {
+				alert('lga cannot be empty');
+				return;
+			}
+			if (state === '' || state === undefined) {
+				alert('state cannot be empty');
+				return;
+			}
+			if (amount === '' || amount === undefined) {
+				alert('loan amount cannot be empty');
+				return;
+			}
+			if (interest === '' || interest === undefined) {
+				alert('interest rate per year cannot be empty');
+				return;
+			}
+			if (tenure === '' || tenure === undefined) {
+				alert('tenure cannot be empty');
+				return;
+			}
+			if (make === '' || make === undefined) {
+				alert('Vehicle make cannot be empty');
+				return;
+			}
+			if (model === '' || model === undefined) {
+				alert('Vehicle model cannot be empty');
+				return;
+			}
+			if (year === '' || year === undefined) {
+				alert('Vehicle year cannot be empty');
+				return;
+			}
+			if (condition === '' || condition === undefined) {
+				alert('Vehicle condition cannot be empty');
+				return;
+			}
+			if (vin === '' || vin === undefined) {
+				alert('vin cannot be empty');
+				return;
+			}
+			if (carValue === '' || carValue === undefined) {
+				alert('Vehicle Price cannot be empty');
+				return;
+			}
 			gen.innerText = 'loading';
+			return;
+			if (equity === '' || equity === undefined) {
+				alert('equity cannot be empty');
+				return;
+			}
+			if (repayment === '' || repayment === undefined) {
+				alert('Monthly Installment cannot be empty');
+				return;
+			}
+			if (renewal === '' || renewal === undefined) {
+				alert('Monthly Renewal cannot be empty');
+				return;
+			}
+			if (renewalPeriod === '' || renewalPeriod === undefined) {
+				alert('Number of months for nenewal cannot be empty');
+				return;
+			}
 
 			loadFile('template.docx', function (error, content) {
 				if (error) {
