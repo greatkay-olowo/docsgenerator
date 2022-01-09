@@ -199,72 +199,75 @@
 			PizZipUtils.getBinaryContent(url, callback);
 		}
 		function generate() {
-			loadFile('/assets/documents/template.docx', function (error, content) {
-				if (error) {
-					throw error;
-				}
-				var zip = new PizZip(content);
-				var doc = new window.docxtemplater(zip, {
-					paragraphLoop: true,
-					linebreaks: true,
-				});
+			loadFile(
+				'https://greatkay-olowo.github.io/docsgenerator/blob/main/assets/documents/template.docx',
+				function (error, content) {
+					if (error) {
+						throw error;
+					}
+					var zip = new PizZip(content);
+					var doc = new window.docxtemplater(zip, {
+						paragraphLoop: true,
+						linebreaks: true,
+					});
 
-				// render the document
-				// (replace all occurences of {first_name} by John, {last_name} by Doe)
-				const date = document.getElementById('date');
-				const name = document.getElementById('name');
-				const no = document.getElementById('no');
-				const street = document.getElementById('street');
-				const lga = document.getElementById('lga');
-				const state = document.getElementById('state');
-				const interest = document.getElementById('interest');
-				const tenure = document.getElementById('tenure');
-				const make = document.getElementById('make');
-				const model = document.getElementById('model');
-				const year = document.getElementById('year');
-				const condition = document.getElementById('condition');
-				const vin = document.getElementById('vin');
-				const carValue = document.getElementById('carValue');
-				const equity = document.getElementById('equity');
-				const repayment = document.getElementById('repayment');
-				const renewal = document.getElementById('renewal');
-				const renewalPeriod = document.getElementById('renewalPeriod');
-				doc.render({
-					date: date,
-					name: name,
-					address: `${no} ${street} ${lga} ${state} `,
-					amount: amount,
-					amountInWord: toWordsconver(amount),
-					interest: interest,
-					tenure: tenure,
-					make: make,
-					model: model,
-					year: year,
-					condition: condition,
-					vin: vin,
-					carValue: carValue,
-					carValueInWords: toWordsconver(carValue),
-					equity: equity,
-					equityInWords: toWordsconver(equity),
-					repayment: repayment,
-					repaymentInWords: toWordsconver(repayment),
-					renewal: renewal,
-					renewalInWords: toWordsconver(renewal),
-					renewalPeriod: renewalPeriod,
-					totalRenewal: renewal * renewalPeriod,
-					totalRenewalInWords: toWordsconver(renewal * renewalPeriod),
-					totalRepayment: repayment + renewal,
-					totalRepaymentInWords: toWordsconver(repayment + renewal),
-				});
+					// render the document
+					// (replace all occurences of {first_name} by John, {last_name} by Doe)
+					const date = document.getElementById('date');
+					const name = document.getElementById('name');
+					const no = document.getElementById('no');
+					const street = document.getElementById('street');
+					const lga = document.getElementById('lga');
+					const state = document.getElementById('state');
+					const interest = document.getElementById('interest');
+					const tenure = document.getElementById('tenure');
+					const make = document.getElementById('make');
+					const model = document.getElementById('model');
+					const year = document.getElementById('year');
+					const condition = document.getElementById('condition');
+					const vin = document.getElementById('vin');
+					const carValue = document.getElementById('carValue');
+					const equity = document.getElementById('equity');
+					const repayment = document.getElementById('repayment');
+					const renewal = document.getElementById('renewal');
+					const renewalPeriod = document.getElementById('renewalPeriod');
+					doc.render({
+						date: date,
+						name: name,
+						address: `${no} ${street} ${lga} ${state} `,
+						amount: amount,
+						amountInWord: toWordsconver(amount),
+						interest: interest,
+						tenure: tenure,
+						make: make,
+						model: model,
+						year: year,
+						condition: condition,
+						vin: vin,
+						carValue: carValue,
+						carValueInWords: toWordsconver(carValue),
+						equity: equity,
+						equityInWords: toWordsconver(equity),
+						repayment: repayment,
+						repaymentInWords: toWordsconver(repayment),
+						renewal: renewal,
+						renewalInWords: toWordsconver(renewal),
+						renewalPeriod: renewalPeriod,
+						totalRenewal: renewal * renewalPeriod,
+						totalRenewalInWords: toWordsconver(renewal * renewalPeriod),
+						totalRepayment: repayment + renewal,
+						totalRepaymentInWords: toWordsconver(repayment + renewal),
+					});
 
-				var out = doc.getZip().generate({
-					type: 'blob',
-					mimeType:
-						'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-				});
-				// Output the document using Data-URI
-				saveAs(out, 'output.docx');
-			});
+					var out = doc.getZip().generate({
+						type: 'blob',
+						mimeType:
+							'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+					});
+					// Output the document using Data-URI
+					saveAs(out, 'output.docx');
+				},
+			);
 		}
 	</script>
 </html>
