@@ -12,63 +12,60 @@
 			crossorigin="anonymous"
 		/>
 
-		<title>Generate Loan Agreement and Direct Debit Mandates</title>
+		<title>Generate Loan Agreement</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.28.2/docxtemplater.js"></script>
+		<script src="https://unpkg.com/pizzip@3.1.1/dist/pizzip.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+		<script src="https://unpkg.com/pizzip@3.1.1/dist/pizzip-utils.js"></script>
+
+		<script type="text/javascript" src="./toWord.js"></script>
 	</head>
 	<body>
 		<main class="my-5 mx-2">
 			<div class="text-center text-uppercase fs-2 fw-bold my-5">
-				Generate Loan Agreement and Direct Debit Mandates
+				Generate Loan Agreement
 			</div>
 			<form class="col-lg-6 col-md-8 col-sm-12 mx-auto">
-				<input type="file" id="doc" />
 				<div class="mb-3 row">
 					<label for="date" class="col-sm-3 col-form-label">Date</label>
 					<div class="col-sm-9">
-						<input type="date" class="form-control text-uppercase" id="date" />
+						<input type="date" class="form-control" id="date" />
 					</div>
 				</div>
 				<div class="mb-3 row">
-					<label for="date" class="col-sm-3 col-form-label">Employment Type</label>
+					<label for="name" class="col-sm-3 col-form-label">Name</label>
 					<div class="col-sm-9">
-						<select
-							class="form-select text-uppercase"
-							aria-label="multiple select example"
-							id="type"
-						>
-							<option selected></option>
-							<option value="Salary Earner">Salary Earner</option>
-							<option value="Business Owner">Business Owner</option>
-						</select>
+						<input type="text" class="form-control" id="name" />
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label for="no" class="col-sm-3 col-form-label">House Number</label>
 					<div class="col-sm-9">
-						<input type="text" class="form-control text-uppercase" id="no" />
+						<input type="text" class="form-control" id="no" />
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label for="street" class="col-sm-3 col-form-label">Street Name</label>
 					<div class="col-sm-9">
-						<input type="text" class="form-control text-uppercase" id="street" />
+						<input type="text" class="form-control" id="street" />
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label for="lga" class="col-sm-3 col-form-label">LGA</label>
 					<div class="col-sm-9">
-						<input type="text" class="form-control text-uppercase" id="lga" />
+						<input type="text" class="form-control" id="lga" />
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label for="state" class="col-sm-3 col-form-label">STATE</label>
 					<div class="col-sm-9">
-						<input type="text" class="form-control text-uppercase" id="state" />
+						<input type="text" class="form-control" id="state" />
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label for="amount" class="col-sm-3 col-form-label">LOAN AMOUNT</label>
 					<div class="col-sm-9">
-						<input type="number" class="form-control text-uppercase" id="amount" />
+						<input type="number" class="form-control" id="amount" />
 					</div>
 				</div>
 				<div class="mb-3 row">
@@ -76,7 +73,7 @@
 						>INTEREST RATE per year</label
 					>
 					<div class="col-sm-9">
-						<input type="number" class="form-control text-uppercase" id="interest" />
+						<input type="number" class="form-control" id="interest" />
 					</div>
 				</div>
 				<div class="mb-3 row">
@@ -84,7 +81,7 @@
 						>tenure</label
 					>
 					<div class="col-sm-9">
-						<input type="number" class="form-control text-uppercase" id="tenure" />
+						<input type="number" class="form-control" id="tenure" />
 					</div>
 				</div>
 				<div class="mb-3 row">
@@ -92,7 +89,7 @@
 						>Vehicle make</label
 					>
 					<div class="col-sm-9">
-						<input type="text" class="form-control text-uppercase" id="make" />
+						<input type="text" class="form-control" id="make" />
 					</div>
 				</div>
 				<div class="mb-3 row">
@@ -100,7 +97,7 @@
 						>Vehicle model</label
 					>
 					<div class="col-sm-9">
-						<input type="text" class="form-control text-uppercase" id="model" />
+						<input type="text" class="form-control" id="model" />
 					</div>
 				</div>
 				<div class="mb-3 row">
@@ -108,7 +105,7 @@
 						>Vehicle year</label
 					>
 					<div class="col-sm-9">
-						<input type="text" class="form-control text-uppercase" id="year" />
+						<input type="text" class="form-control" id="year" />
 					</div>
 				</div>
 				<div class="mb-3 row">
@@ -130,7 +127,7 @@
 				<div class="mb-3 row">
 					<label for="vin" class="col-sm-3 col-form-label text-uppercase">VIN</label>
 					<div class="col-sm-9">
-						<input type="text" class="form-control text-uppercase" id="vin" />
+						<input type="text" class="form-control" id="vin" />
 					</div>
 				</div>
 				<div class="mb-3 row">
@@ -138,7 +135,7 @@
 						>Vehicle Price</label
 					>
 					<div class="col-sm-9">
-						<input type="number" class="form-control text-uppercase" id="carValue" />
+						<input type="number" class="form-control" id="carValue" />
 					</div>
 				</div>
 				<div class="mb-3 row">
@@ -146,7 +143,7 @@
 						>Equity</label
 					>
 					<div class="col-sm-9">
-						<input type="number" class="form-control text-uppercase" id="equity" />
+						<input type="number" class="form-control" id="equity" />
 					</div>
 				</div>
 				<div class="mb-3 row">
@@ -154,7 +151,7 @@
 						>Monthly Installment</label
 					>
 					<div class="col-sm-9">
-						<input type="number" class="form-control text-uppercase" id="repayment" />
+						<input type="number" class="form-control" id="repayment" />
 					</div>
 				</div>
 				<div class="mb-3 row">
@@ -162,7 +159,7 @@
 						>Monthly Renewal</label
 					>
 					<div class="col-sm-9">
-						<input type="number" class="form-control text-uppercase" id="renewal" />
+						<input type="number" class="form-control" id="renewal" />
 					</div>
 				</div>
 				<div class="mb-3 row">
@@ -170,122 +167,146 @@
 						>Number of months for nenewal</label
 					>
 					<div class="col-sm-9">
-						<input
-							type="number"
-							class="form-control text-uppercase"
-							id="renewalPeriod"
-						/>
+						<input type="number" class="form-control" id="renewalPeriod" />
 					</div>
 				</div>
 
 				<div class="mb-3 row">
-					<button onclick="generate()" type="button" class="btn btn-primary">
+					<button
+						onclick="generate()"
+						type="button"
+						class="btn btn-primary"
+						id="generateButton"
+					>
 						Generate document
 					</button>
 				</div>
 			</form>
 		</main>
 	</body>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.28.2/docxtemplater.js"></script>
-	<script src="https://unpkg.com/pizzip@3.1.1/dist/pizzip.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
-	<script src="https://unpkg.com/pizzip@3.1.1/dist/pizzip-utils.js"></script>
-	<!--
-    Mandatory in IE 6, 7, 8 and 9.
-    -->
-	<script
-		type="text/javascript"
-		src="https://unpkg.com/pizzip@3.1.1/dist/pizzip-utils-ie.js"
-	></script>
-	<script type="text/javascript" src="./toWord.js"></script>
-
 	<script>
-		async function loadFile(url, callback) {
-			let file = await fetch(url, {
-				method: 'GET',
-				headers: {
-					'Access-Control-Allow-Origin': '*',
-				},
-			}).then((response) =>
-				console.log(
-					'🚀 ~ file: index.html ~ line 210 ~ loadFile ~ response',
-					response,
-				),
-			);
-			// let document = await file.text();
-
-			// PizZipUtils.getBinaryContent(url, callback);
+		let gen = document.getElementById('generateButton');
+		function loadFile(url, callback) {
+			PizZipUtils.getBinaryContent(url, callback);
 		}
 		function generate() {
-			loadFile(
-				'https://github.com/greatkay-olowo/docsgenerator/blob/main/assets/documents/template.docx',
-				function (error, content) {
-					if (error) {
-						throw error;
-					}
-					var zip = new PizZip(content);
-					var doc = new window.docxtemplater(zip, {
-						paragraphLoop: true,
-						linebreaks: true,
-					});
+			gen.innerText = 'loading';
 
-					// render the document
-					// (replace all occurences of {first_name} by John, {last_name} by Doe)
-					const date = document.getElementById('date');
-					const name = document.getElementById('name');
-					const no = document.getElementById('no');
-					const street = document.getElementById('street');
-					const lga = document.getElementById('lga');
-					const state = document.getElementById('state');
-					const interest = document.getElementById('interest');
-					const tenure = document.getElementById('tenure');
-					const make = document.getElementById('make');
-					const model = document.getElementById('model');
-					const year = document.getElementById('year');
-					const condition = document.getElementById('condition');
-					const vin = document.getElementById('vin');
-					const carValue = document.getElementById('carValue');
-					const equity = document.getElementById('equity');
-					const repayment = document.getElementById('repayment');
-					const renewal = document.getElementById('renewal');
-					const renewalPeriod = document.getElementById('renewalPeriod');
-					doc.render({
-						date: date,
-						name: name,
-						address: `${no} ${street} ${lga} ${state} `,
-						amount: amount,
-						amountInWord: toWordsconver(amount),
-						interest: interest,
-						tenure: tenure,
-						make: make,
-						model: model,
-						year: year,
-						condition: condition,
-						vin: vin,
-						carValue: carValue,
-						carValueInWords: toWordsconver(carValue),
-						equity: equity,
-						equityInWords: toWordsconver(equity),
-						repayment: repayment,
-						repaymentInWords: toWordsconver(repayment),
-						renewal: renewal,
-						renewalInWords: toWordsconver(renewal),
-						renewalPeriod: renewalPeriod,
-						totalRenewal: renewal * renewalPeriod,
-						totalRenewalInWords: toWordsconver(renewal * renewalPeriod),
-						totalRepayment: repayment + renewal,
-						totalRepaymentInWords: toWordsconver(repayment + renewal),
-					});
+			loadFile('template.docx', function (error, content) {
+				if (error) {
+					gen.innerText = 'Generate Document';
 
-					var out = doc.getZip().generate({
-						type: 'blob',
-						mimeType:
-							'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-					});
-					// Output the document using Data-URI
-					saveAs(out, 'output.docx');
-				},
-			);
+					throw error;
+				}
+				var zip = new PizZip(content);
+				var doc = new window.docxtemplater(zip, {
+					paragraphLoop: true,
+					linebreaks: true,
+				});
+
+				// render the document
+				// (replace all occurences of {first_name} by John, {last_name} by Doe)
+				const date = document.getElementById('date').value;
+				const name = document.getElementById('name').value;
+				const no = document.getElementById('no').value;
+				const street = document.getElementById('street').value;
+				const lga = document.getElementById('lga').value;
+				const state = document.getElementById('state').value;
+				const amount = document.getElementById('amount').value;
+				const interest = document.getElementById('interest').value;
+				const tenure = document.getElementById('tenure').value;
+				const make = document.getElementById('make').value;
+				const model = document.getElementById('model').value;
+				const year = document.getElementById('year').value;
+				const condition = document.getElementById('condition').value;
+				const vin = document.getElementById('vin').value;
+				const carValue = document.getElementById('carValue').value;
+				const equity = document.getElementById('equity').value;
+				const repayment = document.getElementById('repayment').value;
+				const renewal = document.getElementById('renewal').value;
+				const renewalPeriod = document.getElementById('renewalPeriod').value;
+
+				doc.render({
+					date: date,
+					name: name,
+					address: `${no} ${street} ${lga} ${state} `,
+					amount: parseInt(amount).toLocaleString(undefined, {
+						minimumFractionDigits: 2,
+					}),
+					amountInWord: toWordsconver(amount),
+					interest: interest,
+					tenure: tenure,
+					make: make,
+					model: model,
+					year: year,
+					condition: condition,
+					vin: vin,
+					carValue: parseInt(carValue).toLocaleString(undefined, {
+						minimumFractionDigits: 2,
+					}),
+					carValueInWords: toWordsconver(carValue),
+					equity: parseInt(equity).toLocaleString(undefined, {
+						minimumFractionDigits: 2,
+					}),
+					equityInWords: toWordsconver(equity),
+					repayment: parseInt(repayment).toLocaleString(undefined, {
+						minimumFractionDigits: 2,
+					}),
+					repaymentInWords: toWordsconver(repayment),
+					renewal: parseInt(renewal).toLocaleString(undefined, {
+						minimumFractionDigits: 2,
+					}),
+					renewalInWords: toWordsconver(renewal),
+					renewalPeriod: renewalPeriod,
+					totalRenewal: (parseInt(renewal) * parseInt(renewalPeriod)).toLocaleString(
+						undefined,
+						{ minimumFractionDigits: 2 },
+					),
+					totalRenewalInWords: toWordsconver(renewal * renewalPeriod),
+					totalRepayment: (parseInt(repayment) + parseInt(renewal)).toLocaleString(
+						undefined,
+						{ minimumFractionDigits: 2 },
+					),
+					totalRepaymentInWords: toWordsconver(
+						parseInt(repayment) + parseInt(renewal),
+					),
+				});
+				console.log('🚀 ~ file: index.html ~ line 271 ~ ', {
+					name: name,
+					address: `${no} ${street} ${lga} ${state} `,
+					amount: amount,
+					amountInWord: toWordsconver(amount),
+					interest: interest,
+					tenure: tenure,
+					make: make,
+					model: model,
+					year: year,
+					condition: condition,
+					vin: vin,
+					carValue: carValue,
+					carValueInWords: toWordsconver(carValue),
+					equity: equity,
+					equityInWords: toWordsconver(equity),
+					repayment: repayment,
+					repaymentInWords: toWordsconver(repayment),
+					renewal: renewal,
+					renewalInWords: toWordsconver(renewal),
+					renewalPeriod: renewalPeriod,
+					totalRenewal: renewal * renewalPeriod,
+					totalRenewalInWords: toWordsconver(renewal * renewalPeriod),
+					totalRepayment: repayment + renewal,
+					totalRepaymentInWords: toWordsconver(repayment + renewal),
+				});
+
+				var out = doc.getZip().generate({
+					type: 'blob',
+					mimeType:
+						'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+				});
+				// Output the document using Data-URI
+				saveAs(out, 'output.docx');
+				gen.innerText = 'Generate Document';
+			});
 		}
 	</script>
 </html>
