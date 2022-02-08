@@ -305,25 +305,6 @@
 					}),
 					amcInWords: toWordsconver(amc),
 				});
-				console.log('🚀 ~ file: index.html ~ line 271 ~ ', {
-					name: name,
-					address: `${no} ${street} ${lga} ${state} `,
-					amount: amount,
-					amountInWord: toWordsconver(amount),
-					interest: interest,
-					tenure: tenure,
-					make: make,
-					model: model,
-					year: year,
-					condition: condition,
-					vin: vin,
-					carValue: carValue,
-					carValueInWords: toWordsconver(carValue),
-					equity: equity,
-					equityInWords: toWordsconver(equity),
-					repayment: repayment,
-					repaymentInWords: toWordsconver(repayment),
-				});
 
 				var out = doc.getZip().generate({
 					type: 'blob',

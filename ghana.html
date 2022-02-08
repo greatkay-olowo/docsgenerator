@@ -167,38 +167,6 @@
 							<input type="number" class="form-control" id="repayment" />
 						</div>
 					</div>
-					<div class="mb-3 row">
-						<label for="roadWorthiness" class="col-sm-3 col-form-label text-uppercase"
-							>Cost of Road Worthiness per 6 month for second year</label
-						>
-						<div class="col-sm-9">
-							<input type="number" class="form-control" id="roadWorthiness" />
-						</div>
-					</div>
-					<div class="mb-3 row">
-						<label for="insurance" class="col-sm-3 col-form-label text-uppercase"
-							>Insurance for second year</label
-						>
-						<div class="col-sm-9">
-							<input type="number" class="form-control" id="insurance" />
-						</div>
-					</div>
-					<div class="mb-3 row">
-						<label for="license" class="col-sm-3 col-form-label text-uppercase"
-							>Vehicle license renewal for second year</label
-						>
-						<div class="col-sm-9">
-							<input type="number" class="form-control" id="license" />
-						</div>
-					</div>
-					<div class="mb-3 row">
-						<label for="amc" class="col-sm-3 col-form-label text-uppercase"
-							>AMC for second year</label
-						>
-						<div class="col-sm-9">
-							<input type="number" class="form-control" id="amc" />
-						</div>
-					</div>
 
 					<div class="mb-3 row">
 						<button
@@ -253,10 +221,6 @@
 				const carValue = document.getElementById('carValue').value;
 				const equity = document.getElementById('equity').value;
 				const repayment = document.getElementById('repayment').value;
-				const roadWorthiness = document.getElementById('roadWorthiness').value;
-				const insurance = document.getElementById('insurance').value;
-				const license = document.getElementById('license').value;
-				const amc = document.getElementById('amc').value;
 
 				doc.render({
 					date: date,
@@ -288,41 +252,6 @@
 					roadWorthiness: parseInt(roadWorthiness).toLocaleString(undefined, {
 						minimumFractionDigits: 2,
 					}),
-					roadWorthinessInWords: toWordsconver(roadWorthiness),
-					insurance: parseInt(insurance).toLocaleString(undefined, {
-						minimumFractionDigits: 2,
-					}),
-					insuranceInWords: toWordsconver(insurance),
-					license: parseInt(license).toLocaleString(undefined, {
-						minimumFractionDigits: 2,
-					}),
-					licenseInWords: toWordsconver(license),
-					amc: parseInt(amc).toLocaleString(undefined, {
-						minimumFractionDigits: 2,
-					}),
-					amc: parseInt(amc).toLocaleString(undefined, {
-						minimumFractionDigits: 2,
-					}),
-					amcInWords: toWordsconver(amc),
-				});
-				console.log('🚀 ~ file: index.html ~ line 271 ~ ', {
-					name: name,
-					address: `${no} ${street} ${lga} ${state} `,
-					amount: amount,
-					amountInWord: toWordsconver(amount),
-					interest: interest,
-					tenure: tenure,
-					make: make,
-					model: model,
-					year: year,
-					condition: condition,
-					vin: vin,
-					carValue: carValue,
-					carValueInWords: toWordsconver(carValue),
-					equity: equity,
-					equityInWords: toWordsconver(equity),
-					repayment: repayment,
-					repaymentInWords: toWordsconver(repayment),
 				});
 
 				var out = doc.getZip().generate({
