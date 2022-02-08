@@ -22,17 +22,17 @@
 	</head>
 	<body>
 		<main class="my-5 mx-2">
+			<ul class="nav">
+				<li class="nav-item">
+					<a class="nav-link" href="/">Nigeria</a>
+				</li>
+				<li class="nav-item">
+					<p class="nav-link text-black-50 text-decoration-underline">Ghana</p>
+				</li>
+			</ul>
 			<div>
-				<ul class="nav">
-					<li class="nav-item">
-						<p class="nav-link text-black-50 text-decoration-underline">Nigeria</p>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link active" href="ghana.html">Ghana</a>
-					</li>
-				</ul>
 				<div class="text-center text-uppercase fs-2 fw-bold my-2">
-					Generate Loan Agreement for Get Gari Nigeria
+					Generate Loan Agreement for Get Gari Ghana
 				</div>
 
 				<div class="text-center mb-5 fw-bold">Fill with capital letters</div>
@@ -222,7 +222,7 @@
 		function generate() {
 			gen.innerText = 'loading';
 
-			loadFile('template.docx', function (error, content) {
+			loadFile('ghanatemplate.docx', function (error, content) {
 				if (error) {
 					gen.innerText = 'Generate Document';
 
