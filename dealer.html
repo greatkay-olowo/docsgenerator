@@ -24,26 +24,23 @@
 		<main class="my-5 mx-2">
 			<div>
 				<div class="text-center text-uppercase fs-2 fw-bold my-2">
-					Generate Loan Agreement for Get Gari Ghana
+					Generate Loan Agreement for Get Gari Nigeria
 				</div>
 
 				<div class="text-center mb-5 fw-bold">
 					Fill with capital letters
 				</div>
-
 				<ul class="nav">
 					<li class="nav-item">
-						<a class="nav-link" href="index.html">Nigeria</a>
+						<p class="nav-link">Nigeria</p>
 					</li>
 					<li class="nav-item">
-						<p
+						<a class="nav-link" href="ghana.html">Ghana</a>
+					</li>
+					<li class="nav-item">
+						<a
 							class="nav-link text-black-50 text-decoration-underline"
-						>
-							Ghana
-						</p>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link active" href="dealer.html"
+							href="dealer.html"
 							>Nigeria Dealer</a
 						>
 					</li>
@@ -201,6 +198,9 @@
 									Foreign Used
 								</option>
 								<option value="New">New</option>
+								<option value="Locally Used">
+									Locally Used
+								</option>
 							</select>
 						</div>
 					</div>
@@ -279,10 +279,9 @@
 		function generate() {
 			gen.innerText = 'loading';
 
-			loadFile('ghanatemplate.docx', function (error, content) {
+			loadFile('dealertemplate.docx', function (error, content) {
 				if (error) {
 					gen.innerText = 'Generate Document';
-
 					throw error;
 				}
 				var zip = new PizZip(content);
@@ -346,7 +345,7 @@
 						'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
 				});
 				// Output the document using Data-URI
-				saveAs(out, `${name}_Get_Gari_Loan_Agreement.docx`);
+				saveAs(out, `${name}_Get_Gari_Dealer_Loan_Agreement.docx`);
 				gen.innerText = 'Generate Document';
 			});
 		}
